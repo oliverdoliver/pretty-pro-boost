@@ -14,16 +14,426 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      invoice_attachments: {
+        Row: {
+          created_at: string
+          file_name: string
+          file_path: string
+          file_size: number | null
+          file_type: string | null
+          id: string
+          invoice_id: string
+          uploaded_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          file_name: string
+          file_path: string
+          file_size?: number | null
+          file_type?: string | null
+          id?: string
+          invoice_id: string
+          uploaded_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          file_name?: string
+          file_path?: string
+          file_size?: number | null
+          file_type?: string | null
+          id?: string
+          invoice_id?: string
+          uploaded_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invoice_attachments_invoice_id_fkey"
+            columns: ["invoice_id"]
+            isOneToOne: false
+            referencedRelation: "invoices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      invoice_events: {
+        Row: {
+          comment: string | null
+          created_at: string
+          event_type: Database["public"]["Enums"]["invoice_event_type"]
+          id: string
+          invoice_id: string
+          metadata: Json | null
+          user_id: string | null
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string
+          event_type: Database["public"]["Enums"]["invoice_event_type"]
+          id?: string
+          invoice_id: string
+          metadata?: Json | null
+          user_id?: string | null
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string
+          event_type?: Database["public"]["Enums"]["invoice_event_type"]
+          id?: string
+          invoice_id?: string
+          metadata?: Json | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invoice_events_invoice_id_fkey"
+            columns: ["invoice_id"]
+            isOneToOne: false
+            referencedRelation: "invoices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      invoice_lines: {
+        Row: {
+          account_code: string | null
+          amount: number
+          cost_center: string | null
+          created_at: string
+          description: string | null
+          id: string
+          invoice_id: string
+          project: string | null
+          vat_code: string | null
+        }
+        Insert: {
+          account_code?: string | null
+          amount: number
+          cost_center?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          invoice_id: string
+          project?: string | null
+          vat_code?: string | null
+        }
+        Update: {
+          account_code?: string | null
+          amount?: number
+          cost_center?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          invoice_id?: string
+          project?: string | null
+          vat_code?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invoice_lines_invoice_id_fkey"
+            columns: ["invoice_id"]
+            isOneToOne: false
+            referencedRelation: "invoices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      invoices: {
+        Row: {
+          amount: number
+          created_at: string
+          created_by: string | null
+          currency: string | null
+          description: string | null
+          due_date: string
+          id: string
+          invoice_date: string
+          invoice_number: string | null
+          ocr_number: string | null
+          organization_id: string
+          status: Database["public"]["Enums"]["invoice_status"]
+          updated_at: string
+          vat_amount: number | null
+          vendor_id: string | null
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          created_by?: string | null
+          currency?: string | null
+          description?: string | null
+          due_date: string
+          id?: string
+          invoice_date: string
+          invoice_number?: string | null
+          ocr_number?: string | null
+          organization_id: string
+          status?: Database["public"]["Enums"]["invoice_status"]
+          updated_at?: string
+          vat_amount?: number | null
+          vendor_id?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          created_by?: string | null
+          currency?: string | null
+          description?: string | null
+          due_date?: string
+          id?: string
+          invoice_date?: string
+          invoice_number?: string | null
+          ocr_number?: string | null
+          organization_id?: string
+          status?: Database["public"]["Enums"]["invoice_status"]
+          updated_at?: string
+          vat_amount?: number | null
+          vendor_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invoices_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invoices_vendor_id_fkey"
+            columns: ["vendor_id"]
+            isOneToOne: false
+            referencedRelation: "vendors"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organizations: {
+        Row: {
+          address: string | null
+          city: string | null
+          contact_email: string | null
+          contact_phone: string | null
+          created_at: string
+          id: string
+          name: string
+          org_number: string | null
+          postal_code: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          name: string
+          org_number?: string | null
+          postal_code?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+          org_number?: string | null
+          postal_code?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_invitations: {
+        Row: {
+          accepted_at: string | null
+          created_at: string
+          email: string
+          expires_at: string
+          id: string
+          invited_by: string | null
+          organization_id: string
+          role: Database["public"]["Enums"]["app_role"]
+          token: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          created_at?: string
+          email: string
+          expires_at?: string
+          id?: string
+          invited_by?: string | null
+          organization_id: string
+          role?: Database["public"]["Enums"]["app_role"]
+          token?: string
+        }
+        Update: {
+          accepted_at?: string | null
+          created_at?: string
+          email?: string
+          expires_at?: string
+          id?: string
+          invited_by?: string | null
+          organization_id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          token?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_invitations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_profiles: {
+        Row: {
+          created_at: string
+          email: string
+          first_name: string | null
+          id: string
+          last_name: string | null
+          organization_id: string | null
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          organization_id?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          organization_id?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_profiles_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      vendors: {
+        Row: {
+          address: string | null
+          bankgiro: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          org_number: string | null
+          organization_id: string
+          phone: string | null
+          plusgiro: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          bankgiro?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          org_number?: string | null
+          organization_id: string
+          phone?: string | null
+          plusgiro?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          bankgiro?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          org_number?: string | null
+          organization_id?: string
+          phone?: string | null
+          plusgiro?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vendors_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_organization_id: { Args: { _user_id: string }; Returns: string }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "superadmin" | "brf_admin" | "brf_user"
+      invoice_event_type:
+        | "created"
+        | "sent"
+        | "attested"
+        | "rejected"
+        | "paid"
+        | "comment"
+        | "updated"
+      invoice_status:
+        | "new"
+        | "pending_attestation"
+        | "attested"
+        | "rejected"
+        | "paid"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +560,24 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["superadmin", "brf_admin", "brf_user"],
+      invoice_event_type: [
+        "created",
+        "sent",
+        "attested",
+        "rejected",
+        "paid",
+        "comment",
+        "updated",
+      ],
+      invoice_status: [
+        "new",
+        "pending_attestation",
+        "attested",
+        "rejected",
+        "paid",
+      ],
+    },
   },
 } as const
