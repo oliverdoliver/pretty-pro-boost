@@ -47,6 +47,9 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>070-123 45 67</span>
             </a>
+            <Button variant="outline" asChild>
+              <a href="/login">Logga in</a>
+            </Button>
             <Button asChild>
               <a href="#kontakt">Kontakta oss</a>
             </Button>
@@ -84,6 +87,9 @@ const Header = () => {
                 </a>
               ))}
               <hr className="border-border" />
+              <Button variant="outline" className="w-full" asChild>
+                <a href="/login">Logga in</a>
+              </Button>
               <Button className="w-full" asChild>
                 <a href="#kontakt">Kontakta oss</a>
               </Button>
