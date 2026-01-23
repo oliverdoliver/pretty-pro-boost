@@ -179,6 +179,10 @@ const Contact = () => {
                   </>
                 )}
               </Button>
+              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span>Vi återkopplar normalt inom 24 timmar på vardagar.</span>
+              </div>
             </form>
           </motion.div>
         </div>
