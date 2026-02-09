@@ -51,8 +51,8 @@ const WhyUs = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8">
               {[
-                { number: "15+", label: "År i branschen" },
-                { number: "200+", label: "Nöjda kunder" },
+                { number: "10+", label: "Års erfarenhet" },
+                { number: "100%", label: "Engagemang" },
                 { number: "24/7", label: "Jourtjänst" },
               ].map((stat, index) => (
                 <div key={index} className="text-center lg:text-left">
