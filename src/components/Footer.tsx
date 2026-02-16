@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -29,18 +30,19 @@ const Footer = () => {
             <h4 className="font-serif font-semibold text-lg mb-4">Snabblänkar</h4>
             <nav className="space-y-3">
               {[
-                { label: "Hem", href: "#" },
-                { label: "Tjänster", href: "#tjanster" },
-                { label: "Om oss", href: "#om-oss" },
-                { label: "Kontakt", href: "#kontakt" },
+                { label: "Hem", href: "/" },
+                { label: "Tjänster", href: "/#tjanster" },
+                { label: "Trapphusstädning", href: "/trapphusstadning" },
+                { label: "Om oss", href: "/#om-oss" },
+                { label: "Kontakt", href: "/#kontakt" },
               ].map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

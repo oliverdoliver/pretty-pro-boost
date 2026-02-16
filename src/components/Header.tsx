@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Hem", href: "#" },
-    { label: "Tjänster", href: "#tjanster" },
-    { label: "Om oss", href: "#om-oss" },
-    { label: "Kontakt", href: "#kontakt" },
+    { label: "Hem", href: "/" },
+    { label: "Tjänster", href: "/#tjanster" },
+    { label: "Trapphusstädning", href: "/trapphusstadning" },
+    { label: "Om oss", href: "/#om-oss" },
+    { label: "Kontakt", href: "/#kontakt" },
   ];
 
   return (
@@ -18,7 +20,7 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-serif text-xl font-bold">L</span>
             </div>
@@ -26,18 +28,18 @@ const Header = () => {
               <span className="font-serif text-xl font-semibold text-foreground">Lindes</span>
               <span className="block text-xs text-muted-foreground -mt-1">Fastighetsservice</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -48,10 +50,10 @@ const Header = () => {
               <span>070-123 45 67</span>
             </a>
             <Button variant="outline" asChild>
-              <a href="/login">Logga in</a>
+              <Link to="/login">Logga in</Link>
             </Button>
             <Button asChild>
-              <a href="#kontakt">Kontakta oss</a>
+              <a href="/#kontakt">Kontakta oss</a>
             </Button>
           </div>
 
@@ -77,21 +79,21 @@ const Header = () => {
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="text-lg font-medium text-foreground hover:text-primary transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <hr className="border-border" />
               <Button variant="outline" className="w-full" asChild>
-                <a href="/login">Logga in</a>
+                <Link to="/login">Logga in</Link>
               </Button>
               <Button className="w-full" asChild>
-                <a href="#kontakt">Kontakta oss</a>
+                <a href="/#kontakt">Kontakta oss</a>
               </Button>
             </nav>
           </motion.div>

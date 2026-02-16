@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omdirigerar…</title>
+    <script>
+      (function () {
+        const path = window.location.pathname;
+        const query = window.location.search.slice(1);
+        const hash = window.location.hash;
+        const target = `/?p=${encodeURIComponent(path)}${query ? `&q=${encodeURIComponent(query)}` : ""}${hash}`;
+
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    Omdirigerar…
+  </body>
+</html>

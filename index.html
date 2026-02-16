@@ -23,6 +23,22 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirectPath = params.get("p");
+
+        if (!redirectPath) {
+          return;
+        }
+
+        const decodedPath = decodeURIComponent(redirectPath);
+        const redirectQuery = params.get("q");
+        const targetPath = decodedPath + (redirectQuery ? `?${decodeURIComponent(redirectQuery)}` : "");
+
+        window.history.replaceState(null, "", `${targetPath}${window.location.hash}`);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
