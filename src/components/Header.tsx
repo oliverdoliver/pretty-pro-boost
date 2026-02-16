@@ -7,10 +7,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Hem", href: "#" },
-    { label: "Tjänster", href: "#tjanster" },
-    { label: "Om oss", href: "#om-oss" },
-    { label: "Kontakt", href: "#kontakt" },
+    { label: "Hem", href: "/" },
+    { label: "Tjänster", href: "/#tjanster" },
+    { label: "Trapphusstädning", href: "/trapphusstadning" },
+    { label: "Om oss", href: "/#om-oss" },
+    { label: "Kontakt", href: "/#kontakt" },
   ];
 
   return (
@@ -18,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-serif text-xl font-bold">L</span>
             </div>
@@ -51,7 +52,7 @@ const Header = () => {
               <a href="/login">Logga in</a>
             </Button>
             <Button asChild>
-              <a href="#kontakt">Kontakta oss</a>
+              <a href="/#kontakt">Kontakta oss</a>
             </Button>
           </div>
 
@@ -91,7 +92,7 @@ const Header = () => {
                 <a href="/login">Logga in</a>
               </Button>
               <Button className="w-full" asChild>
-                <a href="#kontakt">Kontakta oss</a>
+                <a href="/#kontakt">Kontakta oss</a>
               </Button>
             </nav>
           </motion.div>
