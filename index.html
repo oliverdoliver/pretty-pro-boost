@@ -28,6 +28,14 @@
         const params = new URLSearchParams(window.location.search);
         const redirectPath = params.get("p");
 
+        if (!redirectPath && window.location.pathname !== "/" && !window.location.pathname.endsWith(".html")) {
+          const currentQuery = window.location.search.slice(1);
+          const redirectUrl = `/?p=${encodeURIComponent(window.location.pathname)}${currentQuery ? `&q=${encodeURIComponent(currentQuery)}` : ""}${window.location.hash}`;
+
+          window.location.replace(redirectUrl);
+          return;
+        }
+
         if (!redirectPath) {
           return;
         }
