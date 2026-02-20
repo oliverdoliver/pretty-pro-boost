@@ -1,0 +1,15 @@
+{
+  "name": "Lindes Fastighetsservice",
+  "short_name": "Lindes",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#456647",
+  "background_color": "#456647",
+  "display": "standalone"
+}
