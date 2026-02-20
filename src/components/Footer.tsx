@@ -36,7 +36,8 @@ const Footer = () => {
                 { label: "Kontakt", href: "/#kontakt" },
               ].map((link) => (
                 
-                  key={link.label}
+                  <a
+                    key={link.label}
                   href={link.href}
                   className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
