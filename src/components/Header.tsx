@@ -9,9 +9,8 @@ const Header = () => {
   const navItems = [
     { label: "Hem", href: "/" },
     { label: "Tjänster", href: "/#tjanster" },
-    { label: "Trapphusstädning", href: "/trapphusstadning" },
-    { label: "Om oss", href: "/#om-oss" },
-    { label: "Kontakt", href: "/#kontakt" },
+
+        { label: "Kontakt", href: "/#kontakt" },
   ];
 
   return (
