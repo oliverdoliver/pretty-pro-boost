@@ -31,7 +31,6 @@ const Footer = () => {
               {[
                 { label: "Hem", href: "/" },
                 { label: "Tjänster", href: "/#tjanster" },
-                { label: "Trapphusstädning", href: "/trapphusstadning" },
                 { label: "Om oss", href: "/#om-oss" },
                 { label: "Kontakt", href: "/#kontakt" },
               ].map((link) => (
