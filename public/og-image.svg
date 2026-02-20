@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Lindes Fastighetsservice förhandsvisning">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f6f4f1"/>
+      <stop offset="100%" stop-color="#ece8e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g transform="translate(170 120)">
+    <rect width="210" height="210" rx="34" fill="#f8f6f2"/>
+    <g transform="translate(25 20)">
+      <g fill="none" stroke="#456647" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M80 140V65" stroke-width="14"/>
+        <path d="M80 83c0-18 15-33 33-33" stroke-width="11"/>
+        <path d="M80 92c0-17-13-30-30-30" stroke-width="11"/>
+        <path d="M34 140h92" stroke-width="12"/>
+      </g>
+      <g>
+        <ellipse cx="80" cy="47" rx="14" ry="22" transform="rotate(-10 80 47)" fill="#456647"/>
+        <ellipse cx="52" cy="40" rx="12" ry="19" transform="rotate(-40 52 40)" fill="#c7b8a4"/>
+        <ellipse cx="108" cy="39" rx="12" ry="19" transform="rotate(32 108 39)" fill="#c7b8a4"/>
+        <ellipse cx="39" cy="68" rx="11" ry="18" transform="rotate(-55 39 68)" fill="#456647"/>
+        <ellipse cx="122" cy="67" rx="11" ry="18" transform="rotate(52 122 67)" fill="#456647"/>
+      </g>
+    </g>
+  </g>
+
+  <text x="430" y="255" font-size="96" font-family="Arial, Helvetica, sans-serif" letter-spacing="4" fill="#bfae99">LINDES</text>
+  <text x="430" y="330" font-size="50" font-family="Arial, Helvetica, sans-serif" letter-spacing="2" fill="#456647">FASTIGHETSSERVICE AB</text>
+  <text x="430" y="410" font-size="34" font-family="Arial, Helvetica, sans-serif" fill="#456647">Professionell fastighetsservice i Malmö</text>
+</svg>
