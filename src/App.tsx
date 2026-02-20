@@ -13,7 +13,7 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import AcceptInvite from "./pages/AcceptInvite";
-import StairwellCleaning from "./pages/StairwellCleaning";
+
 
 // Portal pages
 import Dashboard from "./pages/portal/Dashboard";
@@ -36,8 +36,8 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/invite" element={<AcceptInvite />} />
-            <Route path="/trapphusstadning" element={<StairwellCleaning />} />
+            
+            
 
             {/* Portal routes (protected) */}
             <Route path="/portal" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
